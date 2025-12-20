@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const deleteMedicine = async (id, setMedicine) => {
   if (!window.confirm('Are you sure you want to delete this medicine?')) return;
   try {
-    await axios.delete(`http://localhost:8000/medicine/${id}`);
+    await axios.delete(`https://healthnexus-q76t.onrender.com/medicine/${id}`);
     setMedicine(prev => prev.filter(m => m._id !== id));
   } catch (err) {
     alert('Delete failed: ' + (err?.message || err));
@@ -13,7 +13,7 @@ const deleteMedicine = async (id, setMedicine) => {
 function Viewmedi() {
     const [medicine, setMedicine] = useState([]);
      async function fetchMedicineData() {
-        const response = await axios.get('http://localhost:8000/medicine');
+        const response = await axios.get('https://healthnexus-q76t.onrender.com/medicine');
         if (response.data.msg === "success") {
             setMedicine(response.data.value);
         }
@@ -27,7 +27,7 @@ function Viewmedi() {
               <div className="row justify-content-center">
                 {medicine.map((n, i) => (
                   <div className="card shadow-sm mb-4 mx-3 border-0" style={{ width: "19rem", borderRadius: '16px', background: '#fff' }} key={i}>
-                    <img src={`http://localhost:8000/public/image/medicine/${n.imageUrl}`} className="card-img-top" alt="..." style={{ height: '180px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }} />
+                    <img src={`https://healthnexus-q76t.onrender.com/public/image/medicine/${n.imageUrl}`} className="card-img-top" alt="..." style={{ height: '180px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }} />
                     <div className="card-body">
                       <h5 className="card-title" style={{ fontWeight: 600 }}>{n.name}</h5>
                       <p className="card-text" style={{ color: '#4a5568', minHeight: '48px' }}>{n.description}</p>

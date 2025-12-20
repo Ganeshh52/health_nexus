@@ -24,7 +24,7 @@ const [formData,setFormData] = useState({
 
   try {
     const response = await axios.post(
-      'http://localhost:8000/api/users/register',
+      'https://healthnexus-q76t.onrender.com/api/users/register',
       data,
       {
         headers: { 'Content-Type': 'multipart/form-data' }

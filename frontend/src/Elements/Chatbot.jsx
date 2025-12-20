@@ -47,7 +47,7 @@ function Chatbot() {
     };
     setMessages([...messages, userMsg]);
     try {
-      const response = await axios.post('http://localhost:8000/chat', {
+      const response = await axios.post('https://healthnexus-q76t.onrender.com/chat', {
         message: newMessage,
       });
       const botMsg = {

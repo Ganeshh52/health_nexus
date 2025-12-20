@@ -14,7 +14,7 @@ function PatientAppointments() {
 
 
   function cancelAppointment(id) {
-    axios.delete(`http://localhost:8000/api/appointments/${id}`)
+    axios.delete(`https://healthnexus-q76t.onrender.com/api/appointments/${id}`)
       .then(res => {
         alert(res.data.msg);
         // refresh data if needed
@@ -31,7 +31,7 @@ function PatientAppointments() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/appointments/patient/${patientId}`)
+      .get(`https://healthnexus-q76t.onrender.com/api/appointments/patient/${patientId}`)
       .then((res) => setAppointments(res.data))
       .catch((err) => console.error(err));
   }, [patientId]);

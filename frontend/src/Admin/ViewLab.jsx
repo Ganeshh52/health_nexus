@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const deleteLabTest = async (id, setLab) => {
   if (!window.confirm('Are you sure you want to delete this lab test?')) return;
   try {
-    await axios.delete(`http://localhost:8000/lab/${id}`);
+    await axios.delete(`https://healthnexus-q76t.onrender.com/lab/${id}`);
     setLab(prev => prev.filter(l => l._id !== id));
   } catch (err) {
     alert('Delete failed: ' + (err?.message || err));
@@ -15,7 +15,7 @@ const deleteLabTest = async (id, setLab) => {
 function ViewLab() {
   const [lab, setLab] = useState([]);
   async function fetchLabData() {
-    const response = await axios.get('http://localhost:8000/lab');
+    const response = await axios.get('https://healthnexus-q76t.onrender.com/lab');
     if (response.data.msg === "success") {
       setLab(response.data.value);
     }
@@ -30,7 +30,7 @@ function ViewLab() {
         <div className="row justify-content-center">
           {lab.map((n, i) => (
             <div className="card shadow-sm mb-4 mx-3 border-0" style={{ width: "19rem", borderRadius: '16px', background: '#fff' }} key={i}>
-              <img src={`http://localhost:8000/public/image/labtest/${n.imageUrl}`} className="card-img-top" alt="..." style={{ height: '180px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }} />
+              <img src={`https://healthnexus-q76t.onrender.com/public/image/labtest/${n.imageUrl}`} className="card-img-top" alt="..." style={{ height: '180px', objectFit: 'cover', borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }} />
               <div className="card-body">
                 <h5 className="card-title" style={{ fontWeight: 600 }}>{n.testName}</h5>
                 <p className="card-text" style={{ color: '#4a5568', minHeight: '48px' }}>{n.description}</p>

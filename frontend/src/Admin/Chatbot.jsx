@@ -8,13 +8,13 @@
 
 //   // Fetch unanswered questions
 //   const fetchUnanswered = async () => {
-//     const res = await axios.get('http://localhost:8000/api/questions/unanswered');
+//     const res = await axios.get('https://healthnexus-q76t.onrender.com/api/questions/unanswered');
 //     setUnanswered(res.data);
 //   };
 
 //   // Fetch answered questions
 //   const fetchAnswered = async () => {
-//     const res = await axios.get('http://localhost:8000/api/questions/answered');
+//     const res = await axios.get('https://healthnexus-q76t.onrender.com/api/questions/answered');
 //     setAnswered(res.data);
 //   };
 
@@ -33,7 +33,7 @@
 //     const answer = editAnswer[id];
 //     if (!answer || answer.trim() === '') return alert("Answer cannot be empty");
 //     try {
-//       await axios.put(http://localhost:8000/api/questions/${id}, {
+//       await axios.put(https://healthnexus-q76t.onrender.com/api/questions/${id}, {
 //         adminReply: answer,
 //         status: 'answered'
 //       });
@@ -53,7 +53,7 @@
 //   // Delete question
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(http://localhost:8000/api/questions/${id});
+//       await axios.delete(https://healthnexus-q76t.onrender.com/api/questions/${id});
 //       // Refresh lists
 //       fetchUnanswered();
 //       fetchAnswered();
@@ -116,13 +116,13 @@ import axios from 'axios';
 
 //   // Fetch unanswered questions
 //   const fetchUnanswered = async () => {
-//     const res = await axios.get('http://localhost:8000/api/questions/unanswered');
+//     const res = await axios.get('https://healthnexus-q76t.onrender.com/api/questions/unanswered');
 //     setUnanswered(res.data);
 //   };
 
 //   // Fetch answered questions
 //   const fetchAnswered = async () => {
-//     const res = await axios.get('http://localhost:8000/api/questions/answered');
+//     const res = await axios.get('https://healthnexus-q76t.onrender.com/api/questions/answered');
 //     setAnswered(res.data);
 //   };
 
@@ -141,7 +141,7 @@ import axios from 'axios';
 //     const answer = editAnswer[id];
 //     if (!answer || answer.trim() === '') return alert("Answer cannot be empty");
 //     try {
-//       await axios.put(http://localhost:8000/api/questions/${id}, {
+//       await axios.put(https://healthnexus-q76t.onrender.com/api/questions/${id}, {
 //         adminReply: answer,
 //         status: 'answered'
 //       });
@@ -161,7 +161,7 @@ import axios from 'axios';
 //   // Delete question
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(http://localhost:8000/api/questions/${id});
+//       await axios.delete(https://healthnexus-q76t.onrender.com/api/questions/${id});
 //       // Refresh lists
 //       fetchUnanswered();
 //       fetchAnswered();
@@ -225,12 +225,12 @@ function AdminPage() {
   const [editAnswer, setEditAnswer] = useState({});
 
   const fetchUnanswered = async () => {
-    const res = await axios.get('http://localhost:8000/api/questions/unanswered');
+    const res = await axios.get('https://healthnexus-q76t.onrender.com/api/questions/unanswered');
     setUnanswered(res.data.questions || res.data);
   };
 
   const fetchAnswered = async () => {
-    const res = await axios.get('http://localhost:8000/api/questions/answered');
+    const res = await axios.get('https://healthnexus-q76t.onrender.com/api/questions/answered');
     setAnswered(res.data.questions || res.data);
   };
 
@@ -247,7 +247,7 @@ function AdminPage() {
     const answer = editAnswer[id];
     if (!answer || answer.trim() === '') return alert("Answer cannot be empty");
     try {
-      await axios.put(`http://localhost:8000/api/questions/${id}`, {
+      await axios.put(`https://healthnexus-q76t.onrender.com/api/questions/${id}`, {
         adminReply:answer,
         status:'answered'
       });
@@ -265,7 +265,7 @@ function AdminPage() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/questions/${id}`);
+      await axios.delete(`https://healthnexus-q76t.onrender.com/api/questions/${id}`);
       fetchUnanswered();
       fetchAnswered();
     } catch{

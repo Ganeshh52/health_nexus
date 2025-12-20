@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchLabData() {
       try {
-        const response = await axios.get('http://localhost:8000/lab')
+        const response = await axios.get('https://healthnexus-q76t.onrender.com/lab')
         if (response.data.msg === "success") {
           setTests(response.data.value)
         }
@@ -44,7 +44,7 @@ export default function Home() {
                   <TestCard
                     test={{
                       ...test,
-                      image: [`http://localhost:8000/public/image/labtest/${test.imageUrl}`]
+                      image: [`https://healthnexus-q76t.onrender.com/public/image/labtest/${test.imageUrl}`]
                     }}
                     onBook={() => setSelectedTest(test)}
                   />

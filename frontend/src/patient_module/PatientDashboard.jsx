@@ -42,7 +42,7 @@ function PatientDashboard() {
     formData.append("reason", reason);
     if (idCard) formData.append("idCard", idCard);
 
-    await axios.post("http://localhost:8000/api/appointments/create", formData);
+    await axios.post("https://healthnexus-q76t.onrender.com/api/appointments/create", formData);
     alert("Appointment request sent");
     setShowForm(false);
   };
@@ -56,7 +56,7 @@ function PatientDashboard() {
     async function fetchUserData() {
       try {
         const id = sessionStorage.getItem("userId");
-        const res = await axios.get(`http://localhost:8000/api/users/${id}`);
+        const res = await axios.get(`https://healthnexus-q76t.onrender.com/api/users/${id}`);
         setUser(res.data.value);
       } catch (err) {
         console.error(err);
@@ -119,7 +119,7 @@ function PatientDashboard() {
             <div className="row align-items-center">
               <div className="col-md-8">
                 <div className="d-flex align-items-center">
-                <img src={user?.image? `http://localhost:8000/image/users/${user.image}`: "http://localhost:8000/image/users/pati.jpeg" }alt={user?.fullName || "Doctor"}style={profileImageStyle}className="me-4"/>
+                <img src={user?.image? `https://healthnexus-q76t.onrender.com/image/users/${user.image}`: "https://healthnexus-q76t.onrender.com/image/users/pati.jpeg" }alt={user?.fullName || "Doctor"}style={profileImageStyle}className="me-4"/>
                   <div>
                     <h2 className="mb-2">Welcome back {user.fullName} </h2>
                     <p className="mb-1 opacity-75">Patient ID: {(user._id).slice(-8)}</p>

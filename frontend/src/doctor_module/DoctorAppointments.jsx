@@ -29,10 +29,10 @@ function DoctorAppointments() {
   // const [completeId, setCompleteId] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/appointments/doctor/${doctorId}`)
+    axios.get(`https://healthnexus-q76t.onrender.com/api/appointments/doctor/${doctorId}`)
       .then(res => setPendingAppointments(res.data));
     
-      axios.get(`http://localhost:8000/api/appointments/doctor/${doctorId}/accepted`)
+      axios.get(`https://healthnexus-q76t.onrender.com/api/appointments/doctor/${doctorId}/accepted`)
       .then(res => setAcceptedAppointments(res.data));
     
   }, []);
@@ -40,7 +40,7 @@ function DoctorAppointments() {
   const respondToAppointment = async (id, status) => {
     const date = status === 'accepted' ? prompt("Enter appointment date (dd-mm-yyyy)") : null;
     try {
-      const res = await axios.put(`http://localhost:8000/api/appointments/${id}/respond`, {
+      const res = await axios.put(`https://healthnexus-q76t.onrender.com/api/appointments/${id}/respond`, {
         status, appointmentDate: date ,doctorId
       });
       if (res.status === 200) {
@@ -53,7 +53,7 @@ function DoctorAppointments() {
     }
   };
     function cancelAppointment(id) {
-      axios.delete(`http://localhost:8000/api/appointments/${id}`)
+      axios.delete(`https://healthnexus-q76t.onrender.com/api/appointments/${id}`)
         .then(res => {
           alert(res.data.msg);
           // refresh data if needed
@@ -66,7 +66,7 @@ function DoctorAppointments() {
     // Complete appointment handler - immediately update status in DB
     function handleCompleteClick(id, status) {
       if (status === 'completed') {
-        axios.put(`http://localhost:8000/api/appointments/${id}/respond`, {
+        axios.put(`https://healthnexus-q76t.onrender.com/api/appointments/${id}/respond`, {
           status: 'completed',
           doctorId
         })
@@ -82,7 +82,7 @@ function DoctorAppointments() {
 
     // function submitCompleteForm(e) {
     //   e.preventDefault();
-    //   axios.put(`http://localhost:8000/api/appointments/${completeId}/respond`, {
+    //   axios.put(`https://healthnexus-q76t.onrender.com/api/appointments/${completeId}/respond`, {
     //     status: 'completed',
     //     doctorId
     //   })

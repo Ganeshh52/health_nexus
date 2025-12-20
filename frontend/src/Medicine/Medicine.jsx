@@ -62,7 +62,7 @@ const handleCheckout = async () => {
   try {
     const stripe = await loadStripe("pk_test_51Rvv1xJCsoKPd0cPHYMfKkTlxO9rCXl0imzzbNmQrsGGBERPKi9ZHFQW65zXMfn9aRjwrtoxlAVZlneInRQR7RG800hkgTjiva");
 
-    const response = await axios.post('http://localhost:8000/api/payment/create-medicine-checkout-session', {
+    const response = await axios.post('https://healthnexus-q76t.onrender.com/api/payment/create-medicine-checkout-session', {
       medicineName: selectedMedicine.name,
       medicinePrice: selectedMedicine.price,
       user: formData,
@@ -80,7 +80,7 @@ const handleCheckout = async () => {
   useEffect(() => {
     async function fetchMedicineData() {
       try {
-        const response = await axios.get("http://localhost:8000/medicine");
+        const response = await axios.get("https://healthnexus-q76t.onrender.com/medicine");
         if (response.data.msg === "success") {
           setMedicines(response.data.value);
         }
@@ -251,7 +251,7 @@ const handleCheckout = async () => {
               <div key={med._id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div className="card h-100">
                   <img
-                    src={`http://localhost:8000/public/image/medicine/${med.imageUrl}`}
+                    src={`https://healthnexus-q76t.onrender.com/public/image/medicine/${med.imageUrl}`}
                     className="card-img-top"
                     style={{ height: "200px", objectFit: "cover" }}
                     alt={med.name}
