@@ -22,7 +22,7 @@ function Blogs() {
           </Col>
           <Col md={5}>
             <img
-              src="./src/assets/Photos/h.jpg"
+              src="/h.jpg"
               alt="Holistic Health"
               className="img-fluid rounded"
             />
@@ -173,7 +173,7 @@ function Blogs() {
 
           <h5 className="fst-italic">Recent posts</h5>
           <div className="d-flex mb-3">
-            <img src="./src/assets/Photos/a1.png" alt="Mindful Eating" className="me-2 rounded" />
+            <img src="/a1.png" alt="Mindful Eating" className="me-2 rounded" />
             <div>
               <strong>Mindful Eating Journal Prompts</strong>
               <div className="text-muted">January 15, 2023</div>
@@ -181,7 +181,7 @@ function Blogs() {
           </div>
 
           <div className="d-flex mb-3">
-            <img src="./src/assets/Photos/a2.png" alt="Blood Test" className="me-2 rounded" />
+            <img src="/a2.png" alt="Blood Test" className="me-2 rounded" />
             <div>
               <strong>WHAT REASONS WOULD YOU NEED A BLOOD TEST FOR?</strong>
               <div className="text-muted">January 14, 2023</div>
@@ -189,7 +189,7 @@ function Blogs() {
           </div>
 
           <div className="d-flex mb-3">
-            <img src="./src/assets/Photos/a3.png" alt="Hydration" className="me-2 rounded" />
+            <img src="/a3.png" alt="Hydration" className="me-2 rounded" />
             <div>
               <strong>THE LINK BETWEEN HYDRATION AND HEALTH</strong>
               <div className="text-muted">January 13, 2023</div>

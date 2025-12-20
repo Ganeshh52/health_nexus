@@ -29,28 +29,28 @@ const PatientsReviews = [
         review:
             "I, Prabhakar Singh, 24, was diagnosed with a large 10L left ovarian cyst. (Dr.) Sunil Kumar Chawla handled my case with great care and professionalism.",
         posted: "Posted on: 17/06/2025",
-        img: "./src/assets/images/patient6.png",
+        img: "/images/patient6.png",
     },
     {
         name: "Ajit Singh Chopra",
         review:
             "Need a consultation regarding your health? I'm always ready to provide you professional health consulting at an affordable price.",
         posted: "Posted on: 27/04/2029",
-        img: "./src/assets/images/patient2.png",
+        img: "/images/patient2.png",
     },
     {
         name: "Rishabh Pant",
         review:
             "Need a consultation regarding your healthcare or diagnosis? I'm always ready to provide you with professional healthcare consulting at an affordable price.",
         posted: "Posted on: 27/09/2022",
-        img: "./src/assets/images/patient3.png",
+        img: "/images/patient3.png",
     },
     {
 
         name: "Madhurika Das",
         review:
             "My experience under the care of Dr. Sushil Sharma has been nothing short of extraordinary. As a Senior Consultant in Orthopedics and Joint Replacement Surgery, Dr. Sharma's expertise is unmatched. His thorough evaluation and personalized 31/06/2023",
-        img: "./src/assets/images/patient5.png",
+        img: "/images/patient5.png",
     },
 ];
 
@@ -93,7 +93,7 @@ function Home() {
                     <a href="">
                 <div className='rounded-circle d-flex align-items-center justify-content-center'
                     style={{ width: '60px', height: '60px',backgroundColor:'green' }}>
-                    <img src="./src/assets/images/whats-app-logo.svg" alt="WhatsApp" style={{ width: '30px', height: '30px' }} />
+                    <img src="/images/whats-app-logo.svg" alt="WhatsApp" style={{ width: '30px', height: '30px' }} />
                 </div>
                 </a>
             </div>
@@ -137,7 +137,7 @@ function Home() {
                     <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4'>
                         <Link to="/find-doctor" className="text-decoration-none"> {/*Link to appointment page */}
                             <div className='bg-white rounded shadow text-center p-3 h-100 mx-auto find-doc' style={{ maxWidth: '250px', minHeight: '150px' }}>
-                                <img src="./src/assets/images/search-doctor2.gif" alt="Find a Doctor" style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
+                                <img src="/images/search-doctor2.gif" alt="Find a Doctor" style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
                                 <h6 className='mt-2 text-primary fw-bold' style={{ fontSize: '24px', margin: '0' }}>Find a Doctor</h6>
                             </div>
                         </Link>
@@ -145,7 +145,7 @@ function Home() {
                     <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4 cursor-pointer'>
                         <Link to="/labtest" style={{ textDecoration: 'none' }}>
                             <div className='bg-white rounded shadow text-center p-3 h-100 mx-auto' style={{ maxWidth: '250px', minHeight: '150px' }}>
-                                <img src="./src/assets/images/search-doctor.gif" alt="Health Check-up" style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
+                                <img src="/images/search-doctor.gif" alt="Health Check-up" style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
                                 <h6 className='mt-2 text-primary fw-bold' style={{ fontSize: '24px', margin: '0' }}>Health Check-up</h6>
                             </div>
                         </Link>
@@ -153,13 +153,13 @@ function Home() {
                     <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-4'>
                     <Link to="/medicine" style={{ textDecoration: 'none' }}>
                         <div className='bg-white rounded shadow text-center p-3 h-100 mx-auto' style={{ maxWidth: '250px', minHeight: '150px' }}>
-                            <img src="./src/assets/images/medi.gif" alt="Second Opinion" style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
+                            <img src="/images/medi.gif" alt="Second Opinion" style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
                             <h6 className='mt-2 text-primary fw-bold' style={{ fontSize: '24px', margin: '0' }}>Medicine</h6>
                         </div>
                         </Link>
                     </div>
                     <div style={{height:'120px',width:'100vw'
-            }}> <marquee behavior="" scrollamount="30" direction="right" style={{height:'180px',position:'absolute'}}><img src="./src/assets/images/ambulance.gif" alt="" className='marque-img'/></marquee></div>
+            }}> <marquee behavior="" scrollamount="30" direction="right" style={{height:'180px',position:'absolute'}}><img src="/images/ambulance.gif" alt="" className='marque-img'/></marquee></div>
                 </div>
             </div>
 
@@ -177,38 +177,38 @@ function Home() {
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/first.png" alt="Cancer Centre" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/first.png" alt="Cancer Centre" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Cancer Centre</p>
                                     </div>
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/second.png" alt="Heart & Vascular" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/second.png" alt="Heart & Vascular" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Heart & Vascular Institute</p>
                                     </div>
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/third.png" alt="Digestive & Liver" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/third.png" alt="Digestive & Liver" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Institute For Digestive & Liver Diseases</p>
                                     </div>
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/fourth.png" alt="Bone & Ortho" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/fourth.png" alt="Bone & Ortho" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Institute For Bone, Joint Replacement,<br /> Orthopedics Spine & Sports Medicine</p>
                                     </div>
                                 </div>
 
                                 <div className="col-md-6">
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/fifth.png" alt="Bone Marrow" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/fifth.png" alt="Bone Marrow" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Centre For Bone Marrow Transplant</p>
                                     </div>
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/sixth.png" alt="Neuro" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/sixth.png" alt="Neuro" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Centre For Neurosciences</p>
                                     </div>
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/seven.png" alt="Kidney" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/seven.png" alt="Kidney" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Centre For Renal Sciences & Kidney Transplant</p>
                                     </div>
                                     <div className="d-flex align-items-start mb-4">
-                                        <img src="./src/assets/images/eight.png" alt="Chest & Respiratory" className="me-3" style={{ width: '30px', height: '30px' }} />
+                                        <img src="/images/eight.png" alt="Chest & Respiratory" className="me-3" style={{ width: '30px', height: '30px' }} />
                                         <p className="text-primary mb-0">Centre For Chest & Respiratory Diseases</p>
                                     </div>
                                 </div>
@@ -221,11 +221,11 @@ function Home() {
                     </div>
                     <div className='col-lg-6'>
                         <a href="" className="d-block">
-                        <img src="./src/assets/images/animation-specialist.gif" alt="" className='img-fluid ' style={{borderRadius:'50px'}}/>
+                        <img src="/images/animation-specialist.gif" alt="" className='img-fluid ' style={{borderRadius:'50px'}}/>
                         </a>
                     </div>
                       <div style={{height:'50px',width:'100vw'
-            }}> <img src="./src/assets/images/globe.gif" alt="" className='right-globe'/></div>
+            }}> <img src="/images/globe.gif" alt="" className='right-globe'/></div>
                 </div>
             </div>
 
@@ -238,69 +238,69 @@ function Home() {
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/heart.gif" alt="" /></div>Emergency Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/heart.gif" alt="" /></div>Emergency Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/stomach.gif" alt="" /></div>Pediatric Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/stomach.gif" alt="" /></div>Pediatric Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4 active-card">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/urinery.gif" alt="" /></div> Gynecology Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/urinery.gif" alt="" /></div> Gynecology Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/kidney.gif" alt="" /></div>Cardiology Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/kidney.gif" alt="" /></div>Cardiology Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/chest.gif" alt="" /></div>Neurology Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/chest.gif" alt="" /></div>Neurology Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/skull.gif" alt="" /></div>Psychiatry Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/skull.gif" alt="" /></div>Psychiatry Department</div>
                             </a>
                         </div>
                         <div className="card department-card px-3 py-4 active-card">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/teeth.gif" alt="" /></div> Gynecology Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/teeth.gif" alt="" /></div> Gynecology Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/brain.gif" alt="" /></div>Cardiology Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/brain.gif" alt="" /></div>Cardiology Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/liver.gif" alt="" /></div>Neurology Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/liver.gif" alt="" /></div>Neurology Department</div>
                             </a>
                         </div>
 
                         <div className="card department-card px-3 py-4">
                             <a href="" className='facalities-a-tag'>
                                 <div className="icon mb-2"></div>
-                                <div className="name"><div><img className='facalities-card-img' src="./src/assets/images/heart.gif" alt="" /></div>Psychiatry Department</div>
+                                <div className="name"><div><img className='facalities-card-img' src="/images/heart.gif" alt="" /></div>Psychiatry Department</div>
                             </a>
                         </div>
                     </div>
@@ -360,7 +360,7 @@ function Home() {
             <Container className="faq-section my-5">
                 <h2 className="faq-heading text-center">Do You Have Questions?</h2>
                 <p className="text-center text-muted">We have answers (well, most of the time!)</p>
-                <img className='faq-image' src="./src/assets/images/faq-image.png" alt="" />
+                <img className='faq-image' src="/images/faq-image.png" alt="" />
                 <Row className="mt-4">
                     {Object.entries(faqData).map(([category, items], colIndex) => (
                         <Col md={6} key={colIndex}>
