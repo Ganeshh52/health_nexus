@@ -4,6 +4,10 @@ import b1 from '../assets/images/blog1.png';
 import b2 from '../assets/images/blog2.png';
 import b3 from '../assets/images/blog3.png';
 import b4 from '../assets/images/blog4.png';
+import heroImage from '../assets/Photos/h.jpg';
+import recentPost1 from '../assets/Photos/a1.png';
+import recentPost2 from '../assets/Photos/a2.png';
+import recentPost3 from '../assets/Photos/a3.png';
 import Navbar from "../Elements/Navbar";
 import Footer from "../Elements/Footer";
 
@@ -22,7 +26,7 @@ function Blogs() {
           </Col>
           <Col md={5}>
             <img
-              src="/h.jpg"
+              src={heroImage}
               alt="Holistic Health"
               className="img-fluid rounded"
             />
@@ -173,7 +177,7 @@ function Blogs() {
 
           <h5 className="fst-italic">Recent posts</h5>
           <div className="d-flex mb-3">
-            <img src="/a1.png" alt="Mindful Eating" className="me-2 rounded" />
+            <img src={recentPost1} alt="Mindful Eating" className="me-2 rounded" />
             <div>
               <strong>Mindful Eating Journal Prompts</strong>
               <div className="text-muted">January 15, 2023</div>
@@ -181,7 +185,7 @@ function Blogs() {
           </div>
 
           <div className="d-flex mb-3">
-            <img src="/a2.png" alt="Blood Test" className="me-2 rounded" />
+            <img src={recentPost2} alt="Blood Test" className="me-2 rounded" />
             <div>
               <strong>WHAT REASONS WOULD YOU NEED A BLOOD TEST FOR?</strong>
               <div className="text-muted">January 14, 2023</div>
@@ -189,7 +193,7 @@ function Blogs() {
           </div>
 
           <div className="d-flex mb-3">
-            <img src="/a3.png" alt="Hydration" className="me-2 rounded" />
+            <img src={recentPost3} alt="Hydration" className="me-2 rounded" />
             <div>
               <strong>THE LINK BETWEEN HYDRATION AND HEALTH</strong>
               <div className="text-muted">January 13, 2023</div>

@@ -10,7 +10,7 @@ function LoginForm() {
   async function handlesubmit(e) {
     e.preventDefault();
   const user = { email, password, type: loginType };
-  const response = await axios.post('https://healthnexus-q76t.onrender.com/api/users/login', user);
+  const response = await axios.post('http://localhost:8000/api/users/login', user);
     const data = response.data;
     if (data.msg === "success") {
 

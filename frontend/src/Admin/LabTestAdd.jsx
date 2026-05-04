@@ -36,12 +36,12 @@ function LabTestAdd() {
     let response;
     if (editData && editData._id) {
       // Editing existing lab test
-      response = await axios.put(`https://healthnexus-q76t.onrender.com/lab/${editData._id}`, formData, {
+      response = await axios.put(`http://localhost:8000/lab/${editData._id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
     } else {
       // Adding new lab test
-      response = await axios.post('https://healthnexus-q76t.onrender.com/lab/add', formData, {
+      response = await axios.post('http://localhost:8000/lab/add', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
     }

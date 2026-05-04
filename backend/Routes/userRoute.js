@@ -47,7 +47,7 @@ userRoute.get('/doctors', async (req, res) => {
 });
 
 // Get user by ID
-userRoute.get('/id', async (req, res) => {
+userRoute.get('/:id', async (req, res) => {
   const id = req.params.id;
   const user = await userModel.findById(id).select('-password');
   res.json({ 'msg': 'success', "value": user });

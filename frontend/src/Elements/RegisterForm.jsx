@@ -41,7 +41,7 @@ async function handleSubmit(e) {
 
   try {
     const response = await axios.post(
-      'https://healthnexus-q76t.onrender.com/api/users/register',
+      'http://localhost:8000/api/users/register',
       data,
       {
         headers: { 'Content-Type': 'multipart/form-data' }

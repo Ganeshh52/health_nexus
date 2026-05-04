@@ -35,12 +35,12 @@ function Medicineadd() {
     let response;
     if (editData && editData._id) {
       // Editing existing medicine
-      response = await axios.put(`https://healthnexus-q76t.onrender.com/medicine/${editData._id}`, formData, {
+      response = await axios.put(`http://localhost:8000/medicine/${editData._id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
     } else {
       // Adding new medicine
-      response = await axios.post('https://healthnexus-q76t.onrender.com/medicine/add', formData, {
+      response = await axios.post('http://localhost:8000/medicine/add', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
     }

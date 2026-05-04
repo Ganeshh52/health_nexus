@@ -26,7 +26,7 @@ export default function AppointmentPage() {
 
   // Fetch doctors
   useEffect(() => {
-    fetch("https://healthnexus-q76t.onrender.com/api/users/doctors")
+    fetch("http://localhost:8000/api/users/doctors")
       .then((res) => res.json())
       .then((data) => {
         if (data.msg === "success") {
@@ -54,7 +54,7 @@ export default function AppointmentPage() {
         appointmentSubmittedRef.current = true;
 
         try {
-          await axios.post("https://healthnexus-q76t.onrender.com/api/appointments/create/specific", {
+          await axios.post("http://localhost:8000/api/appointments/create/specific", {
             patientId: sessionStorage.getItem("userId"),
             doctorId: doctorData._id,
             preferredDate: formData.preferredDate,
@@ -103,7 +103,7 @@ export default function AppointmentPage() {
 // Start payment
   const handlePayment = async () => {
     sessionStorage.setItem("selectedDoctor", JSON.stringify(selectedDoctor));
-    try { const res = await axios.post("https://healthnexus-q76t.onrender.com/api/payment/create-checkout-session", { doctorName: selectedDoctor.fullName, doctorFee: selectedDoctor.fee, });
+    try { const res = await axios.post("http://localhost:8000/api/payment/create-checkout-session", { doctorName: selectedDoctor.fullName, doctorFee: selectedDoctor.fee, });
      const stripe = await stripePromise; 
      await stripe.redirectToCheckout({ sessionId: res.data.id }); } 
      catch (err) { console.error(err); 
@@ -163,8 +163,8 @@ export default function AppointmentPage() {
                           <img
                             src={
                               doctor.image
-                                ? `https://healthnexus-q76t.onrender.com/image/users/${doctor.image}`
-                                : "https://healthnexus-q76t.onrender.com/image/users/doctor.jpg"
+                                ? `http://localhost:8000/image/users/${doctor.image}`
+                                : "http://localhost:8000/image/users/doctor.jpg"
                             }
                             alt={doctor.fullName}
                             className="rounded-circle me-3 border"
@@ -285,8 +285,8 @@ export default function AppointmentPage() {
                     <img
                       src={
                         selectedDoctor?.image
-                          ? `https://healthnexus-q76t.onrender.com/image/users/${selectedDoctor.image}`
-                          : "https://healthnexus-q76t.onrender.com/image/users/doctor.jpg"
+                          ? `http://localhost:8000/image/users/${selectedDoctor.image}`
+                          : "http://localhost:8000/image/users/doctor.jpg"
                       }
                       alt={selectedDoctor?.fullName || "Doctor"}
                       className="rounded-circle shadow-sm border"

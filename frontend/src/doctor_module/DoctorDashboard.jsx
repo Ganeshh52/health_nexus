@@ -31,7 +31,7 @@ function DoctorDashboard() {
     async function fetchUserData() {
       try {
         const id = sessionStorage.getItem("userId");
-        const res = await axios.get(`https://healthnexus-q76t.onrender.com/api/users/${id}`);
+        const res = await axios.get(`http://localhost:8000/api/users/${id}`);
         setUser(res.data.value);
       } catch (err) {
         console.error(err);
@@ -94,7 +94,7 @@ function DoctorDashboard() {
             <div className="row align-items-center">
               <div className="col-md-8">
                 <div className="d-flex align-items-center">
-                <img src={user?.image? `https://healthnexus-q76t.onrender.com/image/users/${user.image}`: "https://healthnexus-q76t.onrender.com/image/users/doctor.jpg" }alt={user?.fullName || "Doctor"}style={profileImageStyle}className="me-4"/>
+                <img src={user?.image? `http://localhost:8000/image/users/${user.image}`: "http://localhost:8000/image/users/doctor.jpg" }alt={user?.fullName || "Doctor"}style={profileImageStyle}className="me-4"/>
 
                   <div>
                     <h2 className="mb-2" style={{color:"wheat"}}>Welcome back, {user.fullName} </h2>
