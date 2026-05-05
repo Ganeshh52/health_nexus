@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
+dotenv.config();
 const db = require('./helper/db');
 const userRoute = require('./Routes/userRoute');
 const chatbot = require('./Routes/chatbot');
@@ -14,13 +15,17 @@ const AppointmentRouter = require('./Routes/appointmentRoutes');
 const questionRoute = require('./Routes/questionRoutes');
 
 const paymentRoutes = require('./Routes/payment');
-
-
-
-dotenv.config();
 app.use(express.json());
 app.use(cors());
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
+
+app.get('/', (req, res) => {
+  res.json({ msg: 'HealthNexus backend is running' });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
 
 app.use('/lab', labTestRoute);
 app.use('/medicine', medicineRoute);
