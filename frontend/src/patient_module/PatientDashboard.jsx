@@ -22,6 +22,7 @@ import {
 } from "react-icons/fa";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { API_BASE_URL, buildApiUrl } from '../config/api';
 
 function PatientDashboard() {
 
@@ -32,6 +33,9 @@ function PatientDashboard() {
   const [reason, setReason] = useState('');
   const [idCard, setIdCard] = useState(null);
   const patientId = sessionStorage.getItem("userId");
+  const [user, setUser] = useState(null);
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [userError, setUserError] = useState("");
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -42,7 +46,7 @@ function PatientDashboard() {
     formData.append("reason", reason);
     if (idCard) formData.append("idCard", idCard);
 
-    await axios.post("http://localhost:8000/api/appointments/create", formData);
+    await axios.post(buildApiUrl("/api/appointments/create"), formData);
     alert("Appointment request sent");
     setShowForm(false);
   };
@@ -50,23 +54,44 @@ function PatientDashboard() {
 
 
   //Fetching data from user collections
-  const [user, setUser] = useState("");
-
   useEffect(() => {
     async function fetchUserData() {
       try {
         const id = sessionStorage.getItem("userId");
-        const res = await axios.get(`http://localhost:8000/api/users/${id}`);
+        if (!id) {
+          setUserError("Please log in again to view your dashboard.");
+          return;
+        }
+
+        const res = await axios.get(buildApiUrl(`/api/users/${id}`));
+        if (!res.data.value) {
+          setUserError("We could not find your patient profile. Please log in again.");
+          return;
+        }
+
         setUser(res.data.value);
       } catch (err) {
         console.error(err);
+        setUserError("Unable to load your dashboard right now. Please try again in a moment.");
+      } finally {
+        setLoadingUser(false);
       }
     }
     fetchUserData();
   }, []);
 
-  if (!user) {
+  if (loadingUser) {
     return <p>Loading...</p>;
+  }
+
+  if (userError) {
+    return (
+      <div className="container-fluid">
+        <div className="alert alert-warning" role="alert">
+          {userError}
+        </div>
+      </div>
+    );
   }
 
   const cardStyle = {
@@ -119,7 +144,7 @@ function PatientDashboard() {
             <div className="row align-items-center">
               <div className="col-md-8">
                 <div className="d-flex align-items-center">
-                <img src={user?.image? `http://localhost:8000/image/users/${user.image}`: "http://localhost:8000/image/users/pati.jpeg" }alt={user?.fullName || "Doctor"}style={profileImageStyle}className="me-4"/>
+                <img src={user?.image? `${API_BASE_URL}/image/users/${user.image}`: `${API_BASE_URL}/image/users/pati.jpeg` }alt={user?.fullName || "Patient"}style={profileImageStyle}className="me-4"/>
                   <div>
                     <h2 className="mb-2">Welcome back {user.fullName} </h2>
                     <p className="mb-1 opacity-75">Patient ID: {(user._id).slice(-8)}</p>
