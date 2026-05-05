@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { buildApiUrl } from '../config/api';
 
  function RegisterForm() {
 const[isDoctor,setisDoctor]=useState(false);
@@ -41,7 +42,7 @@ async function handleSubmit(e) {
 
   try {
     const response = await axios.post(
-      'http://localhost:8000/api/users/register',
+      buildApiUrl('/api/users/register'),
       data,
       {
         headers: { 'Content-Type': 'multipart/form-data' }
@@ -50,10 +51,12 @@ async function handleSubmit(e) {
 
     if (response.data.msg === "success") {
       window.alert("Registration successful");
+    } else {
+      window.alert(response.data.msg || "Registration failed");
     }
   } catch (err) {
-    console.error(err);
-    alert("Registration failed");
+    console.error("Registration failed:", err);
+    alert(err.response?.data?.msg || err.message || "Registration failed");
   }
   
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate,Link } from 'react-router-dom';
+import { buildApiUrl } from '../config/api';
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -9,30 +10,37 @@ function LoginForm() {
   const navigate = useNavigate();
   async function handlesubmit(e) {
     e.preventDefault();
-  const user = { email, password, type: loginType };
-  const response = await axios.post('http://localhost:8000/api/users/login', user);
-    const data = response.data;
-    if (data.msg === "success") {
+    const user = { email, password, type: loginType };
 
-      sessionStorage.setItem("authToken", data.token);
-      sessionStorage.setItem("userType", data.type);
-      sessionStorage.setItem("userId", data.userId);
+    try {
+      const response = await axios.post(buildApiUrl('/api/users/login'), user);
+      const data = response.data;
+
+      if (data.msg === "success") {
+
+        sessionStorage.setItem("authToken", data.token);
+        sessionStorage.setItem("userType", data.type);
+        sessionStorage.setItem("userId", data.userId);
 
 
-      window.alert("Login successful!");
-      if (data.type === "patient") {
-        navigate('/patientlogin');
-      } else if (data.type === "doctor") {
-        navigate('/doctor-login');
-      } else if (data.type === "admin") {
-        console.log(data.type);
-        navigate('/admin');
+        window.alert("Login successful!");
+        if (data.type === "patient") {
+          navigate('/patientlogin');
+        } else if (data.type === "doctor") {
+          navigate('/doctor-login');
+        } else if (data.type === "admin") {
+          console.log(data.type);
+          navigate('/admin');
+        } else {
+          window.alert("Some error occurred contact with support");
+          navigate('/login');
+        }
       } else {
-        window.alert("Some error occurred contact with support");
-        navigate('/login');
+        window.alert(data.msg || "Login failed!");
       }
-    } else {
-      window.alert("Login failed!");
+    } catch (error) {
+      console.error("Login failed:", error);
+      window.alert(error.response?.data?.msg || "Login failed!");
     }
   }
 

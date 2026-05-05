@@ -1,13 +1,17 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 const userRoute = express.Router();
 const userModel = require('../Models/userMondel');
+
+const userImageDir = path.join(__dirname, '..', 'public', 'image', 'users');
+fs.mkdirSync(userImageDir, { recursive: true });
 
 // Multer storage config
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './public/image/users'); // Make sure this folder exists
+    cb(null, userImageDir);
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -18,6 +22,17 @@ const upload = multer({ storage });
 // Register with image upload
 userRoute.post('/register', upload.single('image'), async (req, res) => {
     try {
+      const { fullName, email, password } = req.body;
+
+      if (!fullName || !email || !password) {
+        return res.status(400).json({ msg: 'Full name, email, and password are required' });
+      }
+
+      const existingUser = await userModel.findOne({ email });
+      if (existingUser) {
+        return res.status(409).json({ msg: 'Email already registered' });
+      }
+
       const userData = {
         ...req.body,
         image: req.file ? req.file.filename : null
@@ -26,7 +41,11 @@ userRoute.post('/register', upload.single('image'), async (req, res) => {
       const user = await userModel.create(userData);
       res.json({ 'msg': 'success', "value": user });
     } catch (err) {
-      res.status(500).json({ msg: 'error', error: err.message });
+      if (err.code === 11000) {
+        return res.status(409).json({ msg: 'Email already registered' });
+      }
+
+      res.status(500).json({ msg: err.message || 'Registration failed' });
     }
   });
 
